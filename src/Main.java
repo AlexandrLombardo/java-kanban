@@ -1,3 +1,6 @@
+import ManagerPackage.Manager;
+import TaskPackage.*;
+
 public class Main {
     public static void main(String[] args) {
         //Тестовые данные
@@ -8,9 +11,9 @@ public class Main {
         Subtask subtask1 = new Subtask("Подзадача №1","Описание ПОДЗАДАЧИ №1","NEW",epic1);
         Subtask subtask2 = new Subtask("Подзадача №2","Описание ПОДЗАДАЧИ №2","NEW",epic1);
         Subtask subtask3 = new Subtask("Подзадача №3","Описание ПОДЗАДАЧИ №3","NEW",epic2);
-        epic1.subtasks.add(subtask1);
-        epic1.subtasks.add(subtask2);
-        epic2.subtasks.add(subtask3);
+        epic1.addSubtask(subtask1);
+        epic1.addSubtask(subtask2);
+        epic2.addSubtask(subtask3);
 
         Manager manager = new Manager();
 

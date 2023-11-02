@@ -1,6 +1,16 @@
+package TaskPackage;
+
 public class Task {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     int id;
-    String status;
+    public String status;
     String name;
     String discription;
 
@@ -14,7 +24,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "Task.Task{" +
                 "id=" + id +
                 ", status='" + status + '\'' +
                 ", name='" + name + '\'' +
