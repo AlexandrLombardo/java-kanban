@@ -1,6 +1,6 @@
-package ManagerPackage;
+package managerPackage;
 
-import TaskPackage.*;
+import taskPackage.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,19 +76,19 @@ public class Manager {
     //d. Создание. Сам объект должен передаваться в качестве параметра.
     public void addNewTask(Task task){
         task.setId(++lastID);
-        task.status = statusList.get(0);
+        task.setStatus(statusList.get(0));
         taskList.put(task.getId(),task);
     }
 
     public void addNewEpic(Epic epic){
         epic.setId(++lastID);
-        epic.status = statusList.get(0);
+        epic.setStatus(statusList.get(0));
         epicList.put(epic.getId(),epic);
     }
 
     public void addNewSubtask(Subtask subtask){
         subtask.setId(++lastID);
-        subtask.status = statusList.get(0);
+        subtask.setStatus(statusList.get(0));
         subtaskList.put(subtask.getId(),subtask);
     }
     //e. Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.
@@ -107,7 +107,7 @@ public class Manager {
         //Обновление статуса
 
         subtaskList.put(subtask.getId(),subtask);
-        subtask.epic.updateStatus();
+        subtask.getEpic().updateStatus();
     }
     //f. Удаление по идентификатору.
     public void deleteTask(int ID){

@@ -1,4 +1,4 @@
-package TaskPackage;
+package taskPackage;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ public class Epic extends Task {
     private ArrayList<Subtask> subtasks;
 
     public ArrayList<Subtask> getSubtasks() {
-        return subtasks;
+        return (ArrayList<Subtask>) subtasks.clone();
     }
 
     public void addSubtask(Subtask subtask) {
@@ -24,7 +24,7 @@ public class Epic extends Task {
     }
     public void updateStatus(){
         if (subtasks.isEmpty()) {
-            status = "NEW";
+            this.setStatus("NEW");
             return;
         }
 
@@ -32,23 +32,23 @@ public class Epic extends Task {
         int doneCount = 0;
 
         for (Subtask subtask:subtasks) {
-            if (subtask.status.equals("NEW")) {
+            if (subtask.getStatus().equals("NEW")) {
                 newCount++;
-            } else if (subtask.status.equals("DONE")) {
+            } else if (subtask.getStatus().equals("DONE")) {
                 doneCount++;
             }
         }
 
         if (subtasks.size() == newCount) {
-            status = "NEW";
+            this.setStatus("NEW");
             return;
         }
         if (subtasks.size() == doneCount) {
-            status = "DONE";
+            this.setStatus("DONE");
             return;
         }
 
-        status = "IN_PROGRESS";
+        this.setStatus("IN_PROGRESS");
     }
     @Override
     public String toString() {

@@ -1,7 +1,11 @@
-package TaskPackage;
+package taskPackage;
 
 public class Subtask extends Task {
-    public Epic epic;
+    public Epic getEpic() {
+        return epic;
+    }
+
+    private Epic epic;
 
     public Subtask(String name, String discription, String status, Epic epic) {
         super(name, discription, status);

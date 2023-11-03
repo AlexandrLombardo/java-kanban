@@ -1,4 +1,4 @@
-package TaskPackage;
+package taskPackage;
 
 public class Task {
     public int getId() {
@@ -9,15 +9,24 @@ public class Task {
         this.id = id;
     }
 
-    int id;
-    public String status;
-    String name;
-    String discription;
+    private int id;
 
-    public Task(String name, String discription, String status) {
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    private String status;
+    private String name;
+    private String description;
+
+    public Task(String name, String description, String status) {
         this.id = 0;
         this.name = name;
-        this.discription = discription;
+        this.description = description;
         this.status = status;
 
     }
@@ -28,7 +37,7 @@ public class Task {
                 "id=" + id +
                 ", status='" + status + '\'' +
                 ", name='" + name + '\'' +
-                ", discription='" + discription + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

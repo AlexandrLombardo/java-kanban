@@ -1,8 +1,9 @@
-import ManagerPackage.Manager;
-import TaskPackage.*;
+import managerPackage.Manager;
+import taskPackage.*;
 
 public class Main {
     public static void main(String[] args) {
+
         //Тестовые данные
         Task task1 = new Task("Задача №1","Описание ЗАДАЧИ №1","NEW");
         Task task2 = new Task("Задача №2","Описание ЗАДАЧИ №2","NEW");
@@ -31,13 +32,13 @@ public class Main {
 
         System.out.println("МЕНЯЕМ СТАТУСЫ");
 
-        task1.status = "DONE";
-        task2.status = "DONE";
-        epic1.status = "IN_PROGRESS";
-        epic2.status = "IN_PROGRESS";
-        subtask1.status = "DONE";
-        subtask2.status = "IN_PROGRESS";
-        subtask3.status = "DONE";
+        task1.setStatus("DONE");
+        task2.setStatus("DONE");
+        epic1.setStatus("IN_PROGRESS");
+        epic2.setStatus("IN_PROGRESS");
+        subtask1.setStatus("DONE");
+        subtask2.setStatus("IN_PROGRESS");
+        subtask3.setStatus("DONE");
 
         manager.updateTask(task1);
         manager.updateTask(task2);
