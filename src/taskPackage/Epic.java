@@ -1,5 +1,7 @@
 package taskPackage;
 
+import managerPackage.TaskStatus;
+
 import java.util.ArrayList;
 
 public class Epic extends Task {
@@ -18,13 +20,13 @@ public class Epic extends Task {
     public void deleteSubtask(Subtask subtask) {
         subtasks.remove(subtask);
     }
-    public Epic(String name, String discription, String status) {
+    public Epic(String name, String discription, TaskStatus status) {
         super(name, discription, status);
         subtasks = new ArrayList<>();
     }
     public void updateStatus(){
         if (subtasks.isEmpty()) {
-            this.setStatus("NEW");
+            this.setStatus(TaskStatus.NEW);
             return;
         }
 
@@ -32,23 +34,23 @@ public class Epic extends Task {
         int doneCount = 0;
 
         for (Subtask subtask:subtasks) {
-            if (subtask.getStatus().equals("NEW")) {
+            if (subtask.getStatus() == TaskStatus.NEW) {
                 newCount++;
-            } else if (subtask.getStatus().equals("DONE")) {
+            } else if (subtask.getStatus() == TaskStatus.DONE) {
                 doneCount++;
             }
         }
 
         if (subtasks.size() == newCount) {
-            this.setStatus("NEW");
+            this.setStatus(TaskStatus.NEW);
             return;
         }
         if (subtasks.size() == doneCount) {
-            this.setStatus("DONE");
+            this.setStatus(TaskStatus.DONE);
             return;
         }
 
-        this.setStatus("IN_PROGRESS");
+        this.setStatus(TaskStatus.IN_PROGRESS);
     }
     @Override
     public String toString() {

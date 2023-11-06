@@ -1,5 +1,7 @@
 package taskPackage;
 
+import managerPackage.TaskStatus;
+
 public class Task {
     public int getId() {
         return id;
@@ -11,19 +13,19 @@ public class Task {
 
     private int id;
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    private String status;
+    private TaskStatus status;
     private String name;
     private String description;
 
-    public Task(String name, String description, String status) {
+    public Task(String name, String description, TaskStatus status) {
         this.id = 0;
         this.name = name;
         this.description = description;

@@ -1,5 +1,7 @@
 package taskPackage;
 
+import managerPackage.TaskStatus;
+
 public class Subtask extends Task {
     public Epic getEpic() {
         return epic;
@@ -7,7 +9,7 @@ public class Subtask extends Task {
 
     private Epic epic;
 
-    public Subtask(String name, String discription, String status, Epic epic) {
+    public Subtask(String name, String discription, TaskStatus status, Epic epic) {
         super(name, discription, status);
         this.epic = epic;
     }
