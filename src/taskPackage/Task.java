@@ -12,6 +12,9 @@ public class Task {
     }
 
     private int id;
+    private TaskStatus status;
+    private String name;
+    private String description;
 
     public void setStatus(TaskStatus status) {
         this.status = status;
@@ -21,9 +24,22 @@ public class Task {
         return status;
     }
 
-    private TaskStatus status;
-    private String name;
-    private String description;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     public Task(String name, String description, TaskStatus status) {
         this.id = 0;

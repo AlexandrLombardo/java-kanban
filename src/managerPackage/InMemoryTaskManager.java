@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryTaskManager implements TaskManager{
-    private ArrayList<String> statusList = new ArrayList<>();
     private int lastID;
     private HashMap<Integer,Task> taskList;
     private HashMap<Integer, Subtask> subtaskList;
