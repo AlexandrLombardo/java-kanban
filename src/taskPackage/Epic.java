@@ -3,12 +3,13 @@ package taskPackage;
 import managerPackage.TaskStatus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Epic extends Task {
-    private ArrayList<Subtask> subtasks;
+    private List<Subtask> subtasks;
 
-    public ArrayList<Subtask> getSubtasks() {
-        return (ArrayList<Subtask>) subtasks.clone();
+    public List<Subtask> getSubtasks() {
+        return new ArrayList<>(subtasks);
     }
 
     public void addSubtask(Subtask subtask) {

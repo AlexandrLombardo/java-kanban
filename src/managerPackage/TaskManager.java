@@ -3,9 +3,6 @@ package managerPackage;
 import taskPackage.Epic;
 import taskPackage.Subtask;
 import taskPackage.Task;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -13,11 +10,11 @@ public interface TaskManager {
 
     List<Task> getHistory();
     //a. Получение списка всех задач.
-    Collection<Task> getAllTasks();
+    List<Task> getAllTasks();
 
-    Collection<Epic> getAllEpics();
+    List<Epic> getAllEpics();
 
-    Collection<Subtask> getAllSubtasks();
+    List<Subtask> getAllSubtasks();
 
     //b. Удаление всех задач.
     void deleteAllTasks();
@@ -31,7 +28,7 @@ public interface TaskManager {
 
     Epic getEpic(int ID);
 
-    ArrayList<Subtask> getSubtaskByEpic(Epic epic);
+    List<Subtask> getSubtaskByEpic(Epic epic);
 
     Subtask getSubtask(int ID);
     //d. Создание. Сам объект должен передаваться в качестве параметра.

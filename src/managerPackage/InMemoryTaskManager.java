@@ -3,7 +3,6 @@ package managerPackage;
 import taskPackage.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,24 +21,25 @@ public class InMemoryTaskManager implements TaskManager{
 
      }
     //История просмотров задач
+    @Override
     public List<Task> getHistory(){
         return historyManager.getHistory();
     }
 
     //a. Получение списка всех задач.
     @Override
-    public Collection<Task> getAllTasks(){
-        return  taskList.values();
+    public List<Task> getAllTasks(){
+        return  new ArrayList<Task>(taskList.values());
     }
 
     @Override
-    public Collection<Epic> getAllEpics(){
-        return epicList.values();
+    public List<Epic> getAllEpics(){
+        return new ArrayList<Epic>(epicList.values());
     }
 
     @Override
-    public Collection<Subtask> getAllSubtasks(){
-        return subtaskList.values();
+    public List<Subtask> getAllSubtasks(){
+        return new ArrayList<Subtask>(subtaskList.values());
     }
 
     //b. Удаление всех задач.
@@ -79,8 +79,8 @@ public class InMemoryTaskManager implements TaskManager{
     }
 
     @Override
-    public ArrayList<Subtask> getSubtaskByEpic(Epic epic){
-        return epic.getSubtasks();
+    public List<Subtask> getSubtaskByEpic(Epic epic){
+        return (List<Subtask>) epic.getSubtasks();
     }
 
     @Override
