@@ -77,17 +77,31 @@ public class InMemoryTaskManager implements TaskManager{
         historyManager.add(epicList.get(ID));
         return epicList.get(ID);
     }
+    @Override
+    public Subtask getSubtask(int ID){
+        historyManager.add(subtaskList.get(ID));
+        return subtaskList.get(ID);
+    }
+    @Override
+    public Task getAnyTask(int ID){
+        Task result = null;
+
+        result = getTask(ID);
+        if (result==null){
+            result = getEpic(ID);
+        }
+        if (result==null) {
+            result = getSubtask(ID);
+        }
+        return result;
+    }
 
     @Override
     public List<Subtask> getSubtaskByEpic(Epic epic){
         return (List<Subtask>) epic.getSubtasks();
     }
 
-    @Override
-    public Subtask getSubtask(int ID){
-        historyManager.add(subtaskList.get(ID));
-        return subtaskList.get(ID);
-    }
+
     //d. Создание. Сам объект должен передаваться в качестве параметра.
     @Override
     public void addNewTask(Task task){
@@ -134,6 +148,7 @@ public class InMemoryTaskManager implements TaskManager{
     @Override
     public void deleteTask(int ID){
         taskList.remove(ID);
+        historyManager.remove(ID);
     }
 
     @Override
@@ -142,12 +157,14 @@ public class InMemoryTaskManager implements TaskManager{
             deleteSubtask(subtask.getId());
         }
         epicList.remove(ID);
+        historyManager.remove(ID);
     }
 
     @Override
     public void deleteSubtask(int ID){
 
         subtaskList.remove(ID);
+        historyManager.remove(ID);
 
     }
 }
