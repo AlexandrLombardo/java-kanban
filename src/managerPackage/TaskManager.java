@@ -10,7 +10,7 @@ public interface TaskManager {
 
     List<Task> getHistory();
     //a. Получение списка всех задач.
-    List<Task> getAllTasks();
+    List<Task> getTasks();
 
     List<Epic> getAllEpics();
 
@@ -32,7 +32,7 @@ public interface TaskManager {
 
     Subtask getSubtask(int ID);
     //d. Создание. Сам объект должен передаваться в качестве параметра.
-    void addNewTask(Task task);
+    int addNewTask(Task task);
 
     void addNewEpic(Epic epic);
 

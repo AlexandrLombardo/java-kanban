@@ -27,7 +27,7 @@ public class Main {
         inMemoryTaskManager.addNewSubtask(subtask2);
         inMemoryTaskManager.addNewSubtask(subtask3);
 
-        System.out.println(inMemoryTaskManager.getAllTasks());
+        System.out.println(inMemoryTaskManager.getTasks());
         System.out.println(inMemoryTaskManager.getAllEpics());
         System.out.println(inMemoryTaskManager.getAllSubtasks());
 
@@ -49,7 +49,7 @@ public class Main {
         inMemoryTaskManager.updateEpic(epic1);
         inMemoryTaskManager.updateEpic(epic2);
 
-        System.out.println(inMemoryTaskManager.getAllTasks());
+        System.out.println(inMemoryTaskManager.getTasks());
         System.out.println(inMemoryTaskManager.getAllEpics());
         System.out.println(inMemoryTaskManager.getAllSubtasks());
 
@@ -58,7 +58,7 @@ public class Main {
         inMemoryTaskManager.deleteTask(1);
         inMemoryTaskManager.deleteEpic(3);
 
-        System.out.println(inMemoryTaskManager.getAllTasks());
+        System.out.println(inMemoryTaskManager.getTasks());
         System.out.println(inMemoryTaskManager.getAllEpics());
         System.out.println(inMemoryTaskManager.getAllSubtasks());
 
@@ -68,17 +68,13 @@ public class Main {
         System.out.println(inMemoryTaskManager.getTask(2));
         System.out.println(inMemoryTaskManager.getTask(2));
         System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
-        System.out.println(inMemoryTaskManager.getTask(2));
         System.out.println(inMemoryTaskManager.getEpic(4));
-        System.out.println(inMemoryTaskManager.getSubtask(4));
+        System.out.println(inMemoryTaskManager.getSubtask(7));
 
+        inMemoryTaskManager.deleteTask(2);
+        inMemoryTaskManager.deleteEpic(4);
+        System.out.println(inMemoryTaskManager.getAllSubtasks());
+        System.out.println("ПОСЛЕ УДАЛЕНИЯ");
         System.out.println(inMemoryTaskManager.getHistory());
 
 

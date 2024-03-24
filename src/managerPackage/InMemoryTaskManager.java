@@ -12,7 +12,7 @@ public class InMemoryTaskManager implements TaskManager{
     private HashMap<Integer, Subtask> subtaskList;
     private HashMap<Integer, Epic> epicList;
 
-    private HistoryManager historyManager = new Managers().getDefaultHistory();
+    private HistoryManager historyManager = Managers.getDefaultHistory();
     public InMemoryTaskManager() {
         lastID = 0;
         subtaskList = new HashMap<>();
@@ -28,7 +28,7 @@ public class InMemoryTaskManager implements TaskManager{
 
     //a. Получение списка всех задач.
     @Override
-    public List<Task> getAllTasks(){
+    public List<Task> getTasks(){
         return  new ArrayList<Task>(taskList.values());
     }
 
@@ -104,10 +104,11 @@ public class InMemoryTaskManager implements TaskManager{
 
     //d. Создание. Сам объект должен передаваться в качестве параметра.
     @Override
-    public void addNewTask(Task task){
+    public int addNewTask(Task task){
         task.setId(++lastID);
         task.setStatus(TaskStatus.NEW);
         taskList.put(task.getId(),task);
+        return task.getId();
     }
 
     @Override
@@ -147,6 +148,7 @@ public class InMemoryTaskManager implements TaskManager{
     //f. Удаление по идентификатору.
     @Override
     public void deleteTask(int ID){
+
         taskList.remove(ID);
         historyManager.remove(ID);
     }

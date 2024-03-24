@@ -2,6 +2,8 @@ package taskPackage;
 
 import managerPackage.TaskStatus;
 
+import java.util.Objects;
+
 public class Task {
     public int getId() {
         return id;
@@ -49,6 +51,14 @@ public class Task {
 
     }
 
+    public Task(Task task) {
+        this.id = task.id;
+        this.name = task.name;
+        this.description = task.description;
+        this.status = task.status;
+
+    }
+
     @Override
     public String toString() {
         return "Task.Task{" +
@@ -57,6 +67,19 @@ public class Task {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
 
